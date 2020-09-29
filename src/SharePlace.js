@@ -6,8 +6,10 @@ class PlaceFinder {
     constructor() {
         const form = document.querySelector('form');
         const locateUserBtn = document.getElementById('locate-btn');
+        this.shareBtn = document.getElementById('share-btn');
 
         form.addEventListener('submit', this.findAddressHandler.bind(this));
+        // this.shareBtn('click')
         locateUserBtn.addEventListener('click', this.locateUserHandler.bind(this));
     }
 
@@ -64,7 +66,11 @@ class PlaceFinder {
 
     selectPlace(coordinates, address) {
         this.map = new Maps(coordinates);
+        this.shareBtn.disabled = false;
+        const sharedLinkInputEl = document.getElementById('share-link');
+        sharedLinkInputEl.value = `${location.origin}/my-place?address=${encodeURI(address.display_name)}&lat=${coordinates.lat}&lng=${coordinates.long}`
     }
+
 }
 
 new PlaceFinder()
