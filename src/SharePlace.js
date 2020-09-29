@@ -9,8 +9,23 @@ class PlaceFinder {
         this.shareBtn = document.getElementById('share-btn');
 
         form.addEventListener('submit', this.findAddressHandler.bind(this));
-        // this.shareBtn('click')
+        this.shareBtn.addEventListener('click', this.sharePlacehandler);
         locateUserBtn.addEventListener('click', this.locateUserHandler.bind(this));
+    }
+
+    sharePlacehandler() {
+        const sharedLinkInputEl = document.getElementById('share-link');
+        if (!navigator.clipboard) {
+            sharedLinkInputEl.select();
+            return;
+        }
+        navigator.clipboard.writeText(sharedLinkInputEl.value)
+            .then(() => {
+                alert('copies into clipboard');
+            })
+            .catch( err => {
+                console.log(err)
+            })
     }
 
     async findAddressHandler(event) {
