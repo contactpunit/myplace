@@ -7,5 +7,9 @@ myplace is a project to learn building webpage using Javascript ES6, DOM, HTML a
 * [Javascript](MDNdeveloper.mozilla.org)
 * [Node.js](https://nodejs.org/)
 * [Webpack](https://webpack.js.org/)
-* (openlayers.org)
+* openlayers.org
 
+## Status
+
+Project is deployed on firebase static hosting site.
+URL - https://locationcheck-be8fa.web.app
